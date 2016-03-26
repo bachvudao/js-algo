@@ -1,0 +1,10 @@
+{
+  "name": "js-algo",
+  "description": "A variety of algorithms implemented in JS.",
+  "author": "Bach Dao.",
+  "dependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "engine": "node 0.4.1"
+}
