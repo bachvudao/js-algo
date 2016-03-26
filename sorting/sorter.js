@@ -21,43 +21,47 @@ module.exports = {
     },
 
     mergeSort: function(arr) {
-        var length = arr.length;
-        if (length <= 1) {
+        module.exports.mergeSortInternal(arr, 0, arr.length-1);
+        
+        return arr;
+    },
+    
+    mergeSortInternal: function(arr, start, end){
+        if(start < end){
+            var mid = Math.floor((start + end)/2);
+
+            module.exports.mergeSortInternal(arr, start,mid);
+            
+            module.exports.mergeSortInternal(arr, mid+1,end);
+
+            module.exports.mergeSortedArrays(arr, start, mid, end);
+            
             return arr;
-        } else {
-            var left = arr.slice(0, Math.floor(length / 2));
-            var right = arr.slice(Math.floor(length / 2))
-
-            var sortedLeft = module.exports.mergeSort(left);
-            var sortedRight = module.exports.mergeSort(right);
-
-            return module.exports.mergeSortedArrays(sortedLeft, sortedRight);
         }
     },
 
-    mergeSortedArrays: function(left, right) {
+    mergeSortedArrays: function(arr, start, mid, end) {
+        var left = arr.slice(start, mid+1);
+        var right = arr.slice(mid+1, end+1);
+        
         var i = 0;
         var j = 0;
 
-        var result = new Array(left.length + right.length);
-
-        for (resultPointer = 0; resultPointer < result.length; resultPointer++) {
+        for (resultPointer = start; resultPointer <= end; resultPointer++) {
             if(i >= left.length && j < right.length){
-                result[resultPointer] = right[j];
+                arr[resultPointer] = right[j];
                 j++;                
             }else if(j >= right.length && i < left.length){
-                result[resultPointer] = left[i];
+                arr[resultPointer] = left[i];
                 i++;
             }else if (left[i] <= right[j]) {
-                result[resultPointer] = left[i];
+                arr[resultPointer] = left[i];
                 i++;
             } else {
-                result[resultPointer] = right[j];
+                arr[resultPointer] = right[j];
                 j++;
             }
         }
-
-        return result;
     }
 }
 
