@@ -1,28 +1,7 @@
 module.exports = {
 
-    insertionSort: function(arr) {
-        var length = arr.length;
-
-        if (length > 1) {
-            for (i = 1; i < length; i++) {
-                var value = arr[i];
-
-                var j = i - 1;
-                while (j >= 0 && arr[j] > value) {
-                    arr[j + 1] = arr[j];
-                    j--;
-                }
-
-                arr[j + 1] = value;
-            }
-        }
-
-        return arr;
-    },
-
-    mergeSort: function(arr) {
+    sort: function(arr) {
         module.exports.mergeSortInternal(arr, 0, arr.length-1);
-        
         return arr;
     },
     
@@ -31,7 +10,6 @@ module.exports = {
             var mid = Math.floor((start + end)/2);
 
             module.exports.mergeSortInternal(arr, start,mid);
-            
             module.exports.mergeSortInternal(arr, mid+1,end);
 
             module.exports.mergeSortedArrays(arr, start, mid, end);

@@ -1,5 +1,6 @@
 var should = require('should');
-var sorter = require('../sorting/sorter.js');
+var insertionSort = require('../sorting/insertionSort.js');
+var mergeSort = require('../sorting/mergeSort.js');
 
 describe("Sorting Algorithms", function() {
 
@@ -18,8 +19,8 @@ describe("Sorting Algorithms", function() {
         testCases[4].args[i] = random;
     }
 
-    addTestSuite("Insertion Sort", sorter.insertionSort, testCases);
-    addTestSuite("Merge Sort", sorter.mergeSort, testCases);
+    addTestSuite("Insertion Sort", insertionSort.sort, testCases);
+    addTestSuite("Merge Sort", mergeSort.sort, testCases);
 });
 
 function addTestSuite(algorithm, sortFunction, testCases) {
