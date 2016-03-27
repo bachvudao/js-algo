@@ -2,7 +2,6 @@ module.exports = {
 
     sort: function(arr) {
         module.exports.mergeSortInternal(arr, 0, arr.length-1);
-        return arr;
     },
     
     mergeSortInternal: function(arr, start, end){

@@ -16,8 +16,6 @@ module.exports = {
                 arr[j + 1] = value;
             }
         }
-
-        return arr;
     }
 }
 
